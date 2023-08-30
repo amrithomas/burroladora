@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import "react-native-gesture-handler";
+import { StyleSheet, Text, View } from "react-native";
+
+import Calculadora from "./src/pages/Calculadora";
+import ConversorDistancia from "./src/pages/ConversorDistancia";
+import ConversorMoedas from "./src/pages/ConversorMoedas";
+import CustomDrawer from "./src/components/CustomDrawer";
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer style={styles.container}>
+      <Drawer.Navigator initialRouteName="Calculadora" drawerContent={(props) => <CustomDrawer {...props}/>} >
+        <Drawer.Screen name="Calculadora" component={Calculadora} />
+        <Drawer.Screen name="Comprimentos" component={ConversorDistancia} />
+        <Drawer.Screen name="Moedas" component={ConversorMoedas} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#000",
   },
 });
