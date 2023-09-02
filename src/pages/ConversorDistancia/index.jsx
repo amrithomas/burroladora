@@ -6,11 +6,23 @@ import ConversorInput from '../../components/ConversorInput/ConversorInput';
 export default function ConversorDistancia({ navigation }) {
 
 
-    return  (
-        <>
-            <View>
-                <ConversorInput></ConversorInput>
+    return (
+
+        <View style={styles.container}>
+            <View style={styles.conversor}>
+                <ConversorInput ></ConversorInput>
             </View>
-        </>
+        </View>
+
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#000'
+    },
+    conversor: {
+        flex : 1 / 3, 
+    }
+})
