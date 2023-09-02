@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity} from "react-native";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CheckCircleFillIcon from "react-native-bootstrap-icons/icons/check-circle-fill";
 
