@@ -1,8 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
-import { SafeAreaView } from "react-native-safe-area-context";
-import CheckCircleFillIcon from "react-native-bootstrap-icons/icons/check-circle-fill";
 
 // Icons
 import Icon_X from "react-native-bootstrap-icons/icons/x-lg";
@@ -35,24 +33,24 @@ export default function CustomDrawer({ navigation }) {
       {/* Drawer Main */}
 			<View style={ [styles.drawerMain, {backgroundColor: '#f1f1f120'}] }>
 
-        <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] }>
-          <Text style={ [styles.optionsText, styles.whiteText] }>
+        <View style={ [styles.optionsContainer, {backgroundColor: '#f1f1f120'}] }>
+          {/* Opção Calculadora */}
+          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] }>
             <Icon_Calculator fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
-            Calculadora</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] }>
-          <Text style={ [styles.optionsText, styles.whiteText] }>
+            <Text style={ [styles.optionsText, styles.whiteText] }>Calculadora</Text>
+          </TouchableOpacity>
+          {/* Opção Moedas */}
+          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] }>
             <Icon_Coins fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
-            Moedas</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] }>
-          <Text style={ [styles.optionsText, styles.whiteText] }>
+            <Text style={ [styles.optionsText, styles.whiteText] }>Moedas</Text>
+          </TouchableOpacity>
+          {/* Opção Medidas */}
+          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] }>
             <Icon_Rulers fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
-            Medidas</Text>
-        </TouchableOpacity>
-      </View>
+            <Text style={ [styles.optionsText, styles.whiteText] }>Medidas</Text>
+          </TouchableOpacity>
+                </View>
+        </View>
 
       {/* Footer do Drawer */}
       <View style={ [styles.footer, { backgroundColor: '#f1f1f120' }] }>
@@ -94,16 +92,24 @@ const styles = StyleSheet.create({
 	},
 
 	drawerMain: {
+    flexDirection: 'column',
     height: '70%'
   },
 
+  optionsContainer: {
+    height: '30%',
+  },
+
 	optionsItem: {
-		paddingVertical: 10,
-    margin: 10
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    margin: 10,
 	},
 
   optionsIcon: {
-      
+    marginHorizontal: 10,
   },
 
 	optionsText: {
