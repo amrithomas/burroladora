@@ -33,19 +33,23 @@ export default function CustomDrawer({ navigation }) {
       {/* Drawer Main */}
 			<View style={ [styles.drawerMain, {backgroundColor: '#f1f1f120'}] }>
 
+        {/* Container das opções */}
         <View style={ [styles.optionsContainer, {backgroundColor: '#f1f1f120'}] }>
+
           {/* Opção Calculadora */}
-          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] }>
+          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Calculadora")}>
             <Icon_Calculator fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
             <Text style={ [styles.optionsText, styles.whiteText] }>Calculadora</Text>
           </TouchableOpacity>
+
           {/* Opção Moedas */}
-          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] }>
+          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Moedas")}>
             <Icon_Coins fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
             <Text style={ [styles.optionsText, styles.whiteText] }>Moedas</Text>
           </TouchableOpacity>
+
           {/* Opção Medidas */}
-          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] }>
+          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Comprimentos")}>
             <Icon_Rulers fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
             <Text style={ [styles.optionsText, styles.whiteText] }>Medidas</Text>
           </TouchableOpacity>
@@ -65,6 +69,7 @@ export default function CustomDrawer({ navigation }) {
       </View>
 
     </View>
+
 	</DrawerContentScrollView>
   );
 }
