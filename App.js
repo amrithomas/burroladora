@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import Calculadora from "./src/pages/Calculadora";
 import ConversorDistancia from "./src/pages/ConversorDistancia";
-import ConversorMoedas from "./src/pages/ConversorMoedas";
+import ConversorGraus from "./src/pages/ConversorGraus";
 import CustomDrawer from "./src/components/CustomDrawer";
 
 const Drawer = createDrawerNavigator();
@@ -16,7 +16,7 @@ export default function App() {
       <Drawer.Navigator initialRouteName="Calculadora" drawerContent={(props) => <CustomDrawer {...props}/>} >
         <Drawer.Screen name="Calculadora" component={Calculadora} />
         <Drawer.Screen name="Comprimentos" component={ConversorDistancia} />
-        <Drawer.Screen name="Moedas" component={ConversorMoedas} />
+        <Drawer.Screen name="Graus" component={ConversorGraus} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

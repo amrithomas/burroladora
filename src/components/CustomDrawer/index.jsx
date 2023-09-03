@@ -8,6 +8,7 @@ import Icon_Coins from "react-native-bootstrap-icons/icons/currency-exchange";
 import Icon_Rulers from "react-native-bootstrap-icons/icons/rulers";
 import Icon_Calculator from "react-native-bootstrap-icons/icons/calculator-fill";
 import Icon_Star from "react-native-bootstrap-icons/icons/star-fill";
+import Icon_Thermomenter from 'react-native-bootstrap-icons/icons/thermometer-half'
 
 export default function CustomDrawer({ navigation }) {
   return (
@@ -43,9 +44,9 @@ export default function CustomDrawer({ navigation }) {
           </TouchableOpacity>
 
           {/* Opção Moedas */}
-          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Moedas")}>
-            <Icon_Coins fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
-            <Text style={ [styles.optionsText, styles.whiteText] }>Moedas</Text>
+          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Graus")}>
+            <Icon_Thermomenter fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
+            <Text style={ [styles.optionsText, styles.whiteText] }>Graus</Text>
           </TouchableOpacity>
 
           {/* Opção Medidas */}

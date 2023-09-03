@@ -1,19 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import ConversorInput from '../../components/ConversorInput/ConversorInput';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function ConversorDistancia({ navigation }) {
+export default function ConversorGraus({ navigation }) {
+
 
 
     return (
-
         <View style={styles.container}>
             <View style={styles.conversor}>
-                <ConversorInput type={'distancia'}></ConversorInput>
+                <ConversorInput type={'temperatura'}/>
             </View>
         </View>
-
     )
 }
 
@@ -23,6 +22,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#000'
     },
     conversor: {
-        flex : 1 / 3, 
+        flex: 1 / 3,
     }
 })
