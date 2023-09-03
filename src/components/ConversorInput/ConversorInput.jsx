@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   Text,
   TextInput,
-  SafeAreaView,
+  SafeAreaView
 } from "react-native";
 import SelectDropdown from "react-native-select-dropdown";
 
@@ -97,8 +97,9 @@ const ConversorInput = (props) => {
           style={styles.input}
           placeholder="..."
           value={inputText}
+          keyboardType="numeric"
           onChangeText={(value) => setInputText(value)}
-        />
+          />
       </SafeAreaView>
     </View>
   );

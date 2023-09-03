@@ -1,58 +1,78 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
+import DisplayCalculadora from '../../components/DisplayCalculadora/DisplayCalculadora';
+import { Dimensions } from "react-native";
 
-export default function Keyboard(){
+import erase from '../../../assets/erase.png'
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+export default function Keyboard(){ 
+
   const [showOperations, setShowOperations] = useState(true);
-
-  //valor da conta
-  const [total, setTotal] = useState("");
-
-  //operação digitada pelo usuario
-  const [operation, setOperation] = useState();
-
-  //valor digitado pelo usuario
-  const [inputValue, setInputValue] = useState();
-
-  //expressão numerica
-  const [expression, setExpression] = useState([]);[
-  ]
-  
-  // const int = value;
-  async function insertValue() {
-    setInputValue();
-    let values = [];
-    values.push();
-    // useEffect(() => {});
-  }
-
-  async function insertExpression(operation){
     
-  }
+  //valor digitado pelo usuario
+  const [input, setInput] = useState('');
+  //valor da conta
+  const [result, setResult] = useState('');
 
-  async function reset() {
-    setInputValue(0);
-    setExpression([]);
-    setTotal(0);
+  async function insertValue(value){
+    
+    if (value === '='){
+      try{
+        const evalResult = eval(input);
+        setResult(evalResult.toString());
+      }catch(error){
+        setResult('Erro');
+      }
+      setInput('');
+    } else if (value === 'AC') {
+      setInput('');
+      setResult('');
+    } else if (value === '%') {
+      setInput((prevValue) => prevValue += '/100*');
+    } else if (value === 'C'){
+      setInput((prevValue) => prevValue.slice(0, -1));
+    } else if (value === '()'){
+      setInput((prevValue) => '(' + prevValue + ')');
+    } 
+    else {
+      setInput((prevValue) => prevValue + value);
+    }
   }
 
   return (
     <>
-    <View style = {StyleSheet.create({ alignSelf:'center', bottom: -300, position: 'fixed', })}>
-      {/* <View><Text style = {StyleSheet.create({ color: '#fff', alignSelf:'center', fontSize: 30 })}>teste</Text></View>   */}
+    {/* Passar os Cálculos para o Visor */}
+    <DisplayCalculadora result = {result} input = {input}/>
+
+    <View style={ {alignItems: 'flex-end', marginBottom: 8 , marginHorizontal: 10, borderBottomColor: '#222', borderBottomWidth: 1,} }> 
+      <TouchableOpacity onPress={() => insertValue('C')} style={ {marginRight: 11}}>
+        <Image
+          source={erase}
+          style = {{width: 50, height: 50}}
+        />
+      </TouchableOpacity>
+    </View>
+
+    <View style = {StyleSheet.create({ alignSelf:'center' })}>
+      {/* Primeira Linha do Teclado */}
       <View style={styles.rowViews}>
-        <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
+        <TouchableOpacity onPress = {() => insertValue('AC')} style={styles.opeButtons} >
           <Text style={styles.insideButtons}>AC</Text>
           </TouchableOpacity>
-        <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
+        <TouchableOpacity onPress = {() => insertValue('()')} style={styles.opeButtons} >
           <Text style={styles.insideButtons}>(  )</Text>
           </TouchableOpacity>
-        <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
+        <TouchableOpacity onPress = {() => insertValue('%')} style={styles.opeButtons} >
             <Text style={styles.insideButtons}>%</Text>
           </TouchableOpacity>
-        <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
-          <Text style={styles.insideButtons}>/</Text>
+        <TouchableOpacity onPress = {() => insertValue('/')} style={styles.opeButtons} >
+          <Text style={styles.insideButtons}>÷</Text>
           </TouchableOpacity>
       </View>
+      {/* Segunda Linha do Teclado */}
       <View style={styles.rowViews}>
         <TouchableOpacity onPress = {() => insertValue(7)} style={styles.numButtons}>
           <Text style={styles.insideButtons}>7</Text>
@@ -63,10 +83,11 @@ export default function Keyboard(){
         <TouchableOpacity onPress = {() => insertValue(9)} style={styles.numButtons}>
           <Text style={styles.insideButtons}>9</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons}>
-          <Text style={styles.insideButtons}>*</Text>
-          </ TouchableOpacity>
+        <TouchableOpacity onPress = {() => insertValue('*')} style={styles.opeButtons}>
+          <Text style={styles.insideButtons}>×</Text>
+        </ TouchableOpacity>
       </View>
+      {/* Terceira Linha do Teclado */}
       <View style={styles.rowViews}>
         <TouchableOpacity onPress = {() => insertValue(4)} style={styles.numButtons}>
           <Text style={styles.insideButtons}>4</Text>  
@@ -77,10 +98,11 @@ export default function Keyboard(){
         <TouchableOpacity onPress = {() => insertValue(6)} style={styles.numButtons}>
           <Text style={styles.insideButtons}>6</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons}>
+        <TouchableOpacity onPress = {() => insertValue('-')} style={styles.opeButtons}>
           <Text style={styles.insideButtons}>-</Text>
         </TouchableOpacity>
       </View>
+      {/* Quarta Linha do Teclado */}
       <View style={styles.rowViews}>
         <TouchableOpacity onPress = {() => insertValue(1)} style={styles.numButtons} >
           <Text style={styles.insideButtons}>1</Text>
@@ -91,19 +113,20 @@ export default function Keyboard(){
         <TouchableOpacity onPress = {() => insertValue(3)} style={styles.numButtons} >
           <Text style={styles.insideButtons}>3</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
+        <TouchableOpacity onPress = {() => insertValue('+')} style={styles.opeButtons} >
           <Text style={styles.insideButtons}>+</Text>
         </TouchableOpacity>
       </View>
+      {/* Quinta Linha do Teclado */}
       <View style={styles.rowViews}>
-        <TouchableOpacity onPress = {() => insertValue(1)} style={styles.zeroButton} >
+        <TouchableOpacity onPress = {() => insertValue(0)} style={styles.zeroButton} >
           <Text style={styles.insideButtons}>0</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress = {() => insertValue(1)} style={styles.numButtons} >
+        <TouchableOpacity onPress = {() => insertValue('.')} style={styles.numButtons} >
           <Text style={styles.insideButtons}>,</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity onPress = {() => console.log('oi')} style={styles.equalButton} >
+        <TouchableOpacity onPress = {() => insertValue('=')} style={styles.equalButton} >
           <Text style={styles.insideButtons}>=</Text>
         </TouchableOpacity>
       </View>
@@ -115,22 +138,27 @@ export default function Keyboard(){
 const styles = StyleSheet.create({
   rowViews:{
     flexDirection: 'row',
-    width: '100%'
+    width: '100%',
+    backgroundColor: '#ffffff20',
   },
   numButtons: {
     backgroundColor: '#272929',
     margin: 5,
-    borderRadius: 40,
-    width: 90,
-    height: 90,
+    borderRadius: 1000,
+    width: windowWidth/5,
+    height: windowWidth/5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   opeButtons: {
     backgroundColor: '#290086',
     opacity: 50,
     margin: 5,
-    borderRadius: 40,
-    width: 90,
-    height: 90,
+    borderRadius: 1000,
+    width: windowWidth/5,
+    height: windowWidth/5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   insideButtons: {
     color: '#fff',
@@ -141,16 +169,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#5203FC',
     opacity: 50,
     margin: 5,
-    borderRadius: 40,
-    width: 90,
-    height: 90,
+    borderRadius: 100,
+    width: windowWidth/5,
+    height: windowWidth/5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   zeroButton: {
     backgroundColor: '#272929',
     margin: 5,
-    borderRadius: 40,
-    width: 190,
-    height: 90,
+    borderRadius: 1000,
+    width: ((windowWidth/5)*2)+10,
+    height: windowWidth/5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   
 

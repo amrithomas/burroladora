@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
+import { Dimensions } from "react-native";
 
 // Icons
 import Icon_X from "react-native-bootstrap-icons/icons/x-lg";
@@ -10,14 +11,16 @@ import Icon_Calculator from "react-native-bootstrap-icons/icons/calculator-fill"
 import Icon_Star from "react-native-bootstrap-icons/icons/star-fill";
 import Icon_Thermomenter from 'react-native-bootstrap-icons/icons/thermometer-half'
 
+const windowHeight = Dimensions.get('window').height;
+
 export default function CustomDrawer({ navigation }) {
   return (
-  // Fundo do Drawer/ Drawer itself
-	<DrawerContentScrollView contentContainerStyle={{backgroundColor: '#272929', height: '100%'}}>
-    
+    // Fundo do Drawer/ Drawer itself
+    <DrawerContentScrollView contentContainerStyle={{backgroundColor: '#272929'}}>
+      
     {/* Container principal / Wrapper */}
-		<View style={ {flex: 1, flexDirection: 'column', justifyContent: 'space-between', padding: 20, backgroundColor: '#f1f1f120'} }>
-    
+		<View style={ {flex: 1, flexDirection: 'column', justifyContent: 'space-between', padding: 20, height: windowHeight, backgroundColor: '#f1f1f120'} }>
+      
       {/* View do botão de fechar */}
 			<View style={ [{backgroundColor: '#f1f1f120'}] }>
         <TouchableOpacity style={{ alignSelf: 'flex-end' }} onPress={() => navigation.closeDrawer()}>
@@ -46,13 +49,13 @@ export default function CustomDrawer({ navigation }) {
           {/* Opção Moedas */}
           <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Graus")}>
             <Icon_Thermomenter fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
-            <Text style={ [styles.optionsText, styles.whiteText] }>Graus</Text>
+            <Text style={ [styles.optionsText, styles.whiteText] }>Temperatura</Text>
           </TouchableOpacity>
 
           {/* Opção Medidas */}
           <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Comprimentos")}>
             <Icon_Rulers fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
-            <Text style={ [styles.optionsText, styles.whiteText] }>Medidas</Text>
+            <Text style={ [styles.optionsText, styles.whiteText] }>Comprimento</Text>
           </TouchableOpacity>
                 </View>
         </View>
@@ -72,6 +75,7 @@ export default function CustomDrawer({ navigation }) {
     </View>
 
 	</DrawerContentScrollView>
+
   );
 }
 

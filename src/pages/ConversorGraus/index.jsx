@@ -22,6 +22,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#000'
     },
     conversor: {
-        flex: 1 / 3,
+        flex: 2 / 3,
     }
 })

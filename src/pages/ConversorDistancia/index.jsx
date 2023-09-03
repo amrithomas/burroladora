@@ -9,8 +9,12 @@ export default function ConversorDistancia({ navigation }) {
     return (
 
         <View style={styles.container}>
+
             <View style={styles.conversor}>
                 <ConversorInput type={'distancia'}></ConversorInput>
+            </View>
+            <View style={styles.teclado}>
+
             </View>
         </View>
 
@@ -23,6 +27,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#000'
     },
     conversor: {
-        flex : 1 / 3, 
-    }
+        flex : 2 / 3, 
+    },
 })
