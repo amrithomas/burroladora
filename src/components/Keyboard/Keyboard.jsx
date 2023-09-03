@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 
-export default function Keyboard() {
+export default function Keyboard(){
   const [showOperations, setShowOperations] = useState(true);
 
   //valor da conta
@@ -16,13 +16,12 @@ export default function Keyboard() {
   //expressão numerica
   const [expression, setExpression] = useState([]);[
   ]
-
-  async function insertValue(value) {
-    setInputValue(value);
+  
+  // const int = value;
+  async function insertValue() {
+    setInputValue();
     let values = [];
-    values.push(value);
-    console.log(values);
-    document.getElementById('saida').Text = values;
+    values.push();
     // useEffect(() => {});
   }
 
@@ -38,62 +37,74 @@ export default function Keyboard() {
 
   return (
     <>
-    <View>
-      <View><Text id ="saida"></Text></View>  
-      <View>
+    <View style = {StyleSheet.create({ alignSelf:'center', bottom: -300, position: 'fixed', })}>
+      {/* <View><Text style = {StyleSheet.create({ color: '#fff', alignSelf:'center', fontSize: 30 })}>teste</Text></View>   */}
+      <View style={styles.rowViews}>
         <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
-          <Text>AC</Text>
+          <Text style={styles.insideButtons}>AC</Text>
           </TouchableOpacity>
         <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
-          <Text>()</Text>
+          <Text style={styles.insideButtons}>(  )</Text>
           </TouchableOpacity>
         <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
-            <Text>%</Text>
+            <Text style={styles.insideButtons}>%</Text>
           </TouchableOpacity>
         <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
-          <Text>/</Text>
+          <Text style={styles.insideButtons}>/</Text>
           </TouchableOpacity>
       </View>
-      <View>
+      <View style={styles.rowViews}>
         <TouchableOpacity onPress = {() => insertValue(7)} style={styles.numButtons}>
-          <Text>7</Text>
+          <Text style={styles.insideButtons}>7</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => insertValue(8)} style={styles.numButtons}>
-          <Text>8</Text>  
+          <Text style={styles.insideButtons}>8</Text>  
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => insertValue(9)} style={styles.numButtons}>
-          <Text>9</Text>
+          <Text style={styles.insideButtons}>9</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons}>
-          <Text>*</Text>
+          <Text style={styles.insideButtons}>*</Text>
           </ TouchableOpacity>
       </View>
-      <View>
+      <View style={styles.rowViews}>
         <TouchableOpacity onPress = {() => insertValue(4)} style={styles.numButtons}>
-          <View>4</View>  
+          <Text style={styles.insideButtons}>4</Text>  
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => insertValue(5)} style={styles.numButtons}>
-          <View>5</View>
+          <Text style={styles.insideButtons}>5</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => insertValue(6)} style={styles.numButtons}>
-          <View>6</View>
+          <Text style={styles.insideButtons}>6</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons}>
-          <View>-</View>
+          <Text style={styles.insideButtons}>-</Text>
         </TouchableOpacity>
       </View>
-      <View>
+      <View style={styles.rowViews}>
         <TouchableOpacity onPress = {() => insertValue(1)} style={styles.numButtons} >
-          <Text>1</Text>
+          <Text style={styles.insideButtons}>1</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => insertValue(2)} style={styles.numButtons} >
-          <Text>2</Text>
+          <Text style={styles.insideButtons}>2</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => insertValue(3)} style={styles.numButtons} >
-          <View>3</View>
+          <Text style={styles.insideButtons}>3</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => console.log('oi')} style={styles.opeButtons} >
-          <Text>*</Text>
+          <Text style={styles.insideButtons}>+</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.rowViews}>
+        <TouchableOpacity onPress = {() => insertValue(1)} style={styles.zeroButton} >
+          <Text style={styles.insideButtons}>0</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress = {() => insertValue(1)} style={styles.numButtons} >
+          <Text style={styles.insideButtons}>,</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity onPress = {() => console.log('oi')} style={styles.equalButton} >
+          <Text style={styles.insideButtons}>=</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -102,15 +113,46 @@ export default function Keyboard() {
 }
 
 const styles = StyleSheet.create({
+  rowViews:{
+    flexDirection: 'row',
+    width: '100%'
+  },
   numButtons: {
     backgroundColor: '#272929',
-    width: 30,
+    margin: 5,
+    borderRadius: 40,
+    width: 90,
+    height: 90,
   },
   opeButtons: {
     backgroundColor: '#290086',
     opacity: 50,
-    width: 30,
-  }
+    margin: 5,
+    borderRadius: 40,
+    width: 90,
+    height: 90,
+  },
+  insideButtons: {
+    color: '#fff',
+    fontSize: 30,
+    textAlign: 'center',
+  },
+  equalButton: {
+    backgroundColor: '#5203FC',
+    opacity: 50,
+    margin: 5,
+    borderRadius: 40,
+    width: 90,
+    height: 90,
+  },
+  zeroButton: {
+    backgroundColor: '#272929',
+    margin: 5,
+    borderRadius: 40,
+    width: 190,
+    height: 90,
+  },
+  
 
 
 })
