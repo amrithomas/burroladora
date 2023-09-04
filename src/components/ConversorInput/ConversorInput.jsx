@@ -9,10 +9,13 @@ import {
 } from "react-native";
 import SelectDropdown from "react-native-select-dropdown";
 
+import Icon_ArrowDown from "react-native-bootstrap-icons/icons/caret-down-fill";
+
 const ConversorInput = (props) => {
 
   const selectButtonStyle = {
     backgroundColor: "rgba(217,217,217,0.25)",
+    borderRadius: 10,
   };
 
   const selectButtonTextStyle = {
@@ -74,6 +77,9 @@ const ConversorInput = (props) => {
     <View style={styles.content}>
       <SafeAreaView style={styles.box}>
         <SelectDropdown
+          defaultButtonText="Selecione"
+          dropdownOverlayColor='#00000066'
+          renderDropdownIcon={() => <Icon_ArrowDown fill={'#fff'} />}
           style={styles.select}
           data={units}
           buttonStyle={selectButtonStyle}
@@ -87,6 +93,9 @@ const ConversorInput = (props) => {
       <View style={styles.divider}></View>
       <SafeAreaView style={styles.box}>
         <SelectDropdown
+          defaultButtonText="Selecione"
+          dropdownOverlayColor='#00000066'
+          renderDropdownIcon={() => <Icon_ArrowDown fill={'#fff'} />}
           style={styles.select}
           data={units}
           buttonStyle={selectButtonStyle}
