@@ -1,15 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { DrawerContentScrollView } from "@react-navigation/drawer";
+import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { Dimensions } from "react-native";
 
 // Icons
 import Icon_X from "react-native-bootstrap-icons/icons/x-lg";
-import Icon_Coins from "react-native-bootstrap-icons/icons/currency-exchange";
-import Icon_Rulers from "react-native-bootstrap-icons/icons/rulers";
 import Icon_Calculator from "react-native-bootstrap-icons/icons/calculator-fill";
-import Icon_Star from "react-native-bootstrap-icons/icons/star-fill";
 import Icon_Thermomenter from 'react-native-bootstrap-icons/icons/thermometer-half'
+import Icon_Rulers from "react-native-bootstrap-icons/icons/rulers";
+import Icon_Star from "react-native-bootstrap-icons/icons/star-fill";
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -41,29 +40,41 @@ export default function CustomDrawer({ navigation }) {
         <View style={ [styles.optionsContainer] }>
 
           {/* Opção Calculadora */}
-          <TouchableOpacity style={ [styles.optionsItem] } onPress={() => navigation.navigate("Calculadora")}>
-            <Icon_Calculator fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
-            <Text style={ [styles.optionsText, styles.whiteText] }>Calculadora</Text>
-          </TouchableOpacity>
+            <DrawerItem
+              label={"Calculadora"}
+              labelStyle={ {color: '#fff'} }
+              icon={() => <Icon_Calculator fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>}
+              onPress={() => navigation.navigate("Calculadora")}
+              // focused={true}
+              // activeTintColor="#5203FC00"
+            />
 
-          {/* Opção Moedas */}
-          <TouchableOpacity style={ [styles.optionsItem] } onPress={() => navigation.navigate("Graus")}>
-            <Icon_Thermomenter fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
-            <Text style={ [styles.optionsText, styles.whiteText] }>Temperatura</Text>
-          </TouchableOpacity>
+            {/* Opção Temperatura */}
+            <DrawerItem
+              label={"Temperatura"}
+              labelStyle={ {color: '#fff'} }
+              icon={() => <Icon_Thermomenter fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>}
+              onPress={() => navigation.navigate("Graus")}
+              // focused={true}
+              // activeTintColor="#5203FC"
+            />
 
-          {/* Opção Medidas */}
-          <TouchableOpacity style={ [styles.optionsItem] } onPress={() => navigation.navigate("Comprimentos")}>
-            <Icon_Rulers fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
-            <Text style={ [styles.optionsText, styles.whiteText] }>Comprimento</Text>
-          </TouchableOpacity>
-                </View>
+            {/* Opção Comprimento */}
+            <DrawerItem
+              label={"Comprimento"}
+              labelStyle={ {color: '#fff'} }
+              icon={() => <Icon_Rulers fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>}
+              onPress={() => navigation.navigate("Comprimentos")}
+              // focused={true}
+              // activeTintColor="#5203FC"
+            />
+          </View>
         </View>
 
       {/* Footer do Drawer */}
       <View style={ [styles.footer] }>
         <View style={ {flexDirection: 'row'} }>
-          <Icon_Star fill="#ffff00" style={ [styles.star]}/> 
+          <Icon_Star fill="#ffff00" style={ [styles.star]}/>
           <Icon_Star fill="#ffff00" style={ [styles.star]}/>
           <Icon_Star fill="#ffff00" style={ [styles.star]}/>
           <Icon_Star fill="#ffff00" style={ [styles.star]}/>
