@@ -3,15 +3,15 @@ import { View, Text, StyleSheet } from "react-native";
 export default function DisplayCalculadora({result, input}){
 	return (
 		// Container principal do Display
-		<View style={ [styles.display, {backgroundColor: "#ffffff00", height: '25%'}] }>
+		<View style={ [styles.display, {height: '30%'}] }>
 			{/* Resultado */}
-			<View style={ [styles.result, {backgroundColor: "#ffffff00", height: '50%'}] }>
-				<Text style={ [styles.resultText, {color: "#fff", backgroundColor: "#ffffff00"}] }>{result}</Text>
+			<View style={ [styles.result, {height: '50%'}] }>
+				<Text adjustsFontSizeToFit={true} style={ [styles.resultText, {color: "#ff0"}] }>{result}</Text>
 			</View>
 			
 			{/* Expressão */}
-			<View style={ [styles.expression, {backgroundColor: "#ffffff00", height: '50%'}] }>
-				<Text style={ [styles.expressionText, {color: "#fff", backgroundColor: "#ffffff00"}] }>{input}</Text>
+			<View style={ [styles.expression, {height: '50%'}] }>
+				<Text adjustsFontSizeToFit={true} style={ [styles.expressionText, {color: "#fff"}] }>{input}</Text>
 			</View>
 		</View>
 	);

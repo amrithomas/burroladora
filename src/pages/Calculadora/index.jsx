@@ -12,10 +12,10 @@ export default function Calculadora({ navigation }) {
 
     return  (
         <>
-            <SafeAreaView style = { [styles.container] }>
+            <View style = { [styles.container] }>
                 {/* <DisplayCalculadora result = {3} input = {2}/> */}
                 <Keyboard />
-            </SafeAreaView>
+            </View>
         </>
     )
 }
@@ -25,8 +25,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
         flex: 1,
         flexDirection: 'column',
-        // alignItems: 'center',
-        // justifyContent: 'flex-end',
-        // justifyContent: 'space-between',
+        justifyContent: 'space-between',
     },
 })

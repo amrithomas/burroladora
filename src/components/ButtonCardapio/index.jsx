@@ -12,7 +12,7 @@ const ButtonCardapio = () => {
   };
 
   return (
-    <TouchableOpacity onPress={openDrawer}>
+    <TouchableOpacity onPress={openDrawer} style={{padding:10}}>
       <Image
         source={a}
         style={{ marginHorizontal: 10, width: 36, height: 36 }}

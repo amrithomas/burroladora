@@ -19,41 +19,41 @@ export default function CustomDrawer({ navigation }) {
     <DrawerContentScrollView contentContainerStyle={{backgroundColor: '#272929'}}>
       
     {/* Container principal / Wrapper */}
-		<View style={ {flex: 1, flexDirection: 'column', justifyContent: 'space-between', padding: 20, height: windowHeight, backgroundColor: '#f1f1f120'} }>
+		<View style={ {flex: 1, flexDirection: 'column', justifyContent: 'space-between', padding: 20, height: windowHeight} }>
       
       {/* View do botão de fechar */}
-			<View style={ [{backgroundColor: '#f1f1f120'}] }>
-        <TouchableOpacity style={{ alignSelf: 'flex-end' }} onPress={() => navigation.closeDrawer()}>
+			<View>
+        <TouchableOpacity style={{ alignSelf: 'flex-end', padding: 10, left: 5 }} onPress={() => navigation.closeDrawer()}>
           <Icon_X fill="#fff" width={25} height={25} viewBox="0 0 16 16"/>
         </TouchableOpacity>
       </View>
 
       {/* Header do Drawer */}
-			<View style={[styles.drawerHeader, {backgroundColor: '#f1f1f120'}]}>
-				<Text style={[styles.headerTitle, styles.whiteText]}>BURROLADORA</Text>
-				<Text style={[styles.headerSubTitle, styles.whiteText]}>A calculadora para burros</Text>
+			<View style={[styles.drawerHeader]}>
+				<Text numberOfLines={1} adjustsFontSizeToFit={true} style={[styles.headerTitle, styles.whiteText]}>BURROLADORA</Text>
+				<Text adjustsFontSizeToFit={true} style={[styles.headerSubTitle, styles.whiteText]}>A calculadora para burros</Text>
 			</View>
 
       {/* Drawer Main */}
-			<View style={ [styles.drawerMain, {backgroundColor: '#f1f1f120'}] }>
+			<View style={ [styles.drawerMain] }>
 
         {/* Container das opções */}
-        <View style={ [styles.optionsContainer, {backgroundColor: '#f1f1f120'}] }>
+        <View style={ [styles.optionsContainer] }>
 
           {/* Opção Calculadora */}
-          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Calculadora")}>
+          <TouchableOpacity style={ [styles.optionsItem] } onPress={() => navigation.navigate("Calculadora")}>
             <Icon_Calculator fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
             <Text style={ [styles.optionsText, styles.whiteText] }>Calculadora</Text>
           </TouchableOpacity>
 
           {/* Opção Moedas */}
-          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Graus")}>
+          <TouchableOpacity style={ [styles.optionsItem] } onPress={() => navigation.navigate("Graus")}>
             <Icon_Thermomenter fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
             <Text style={ [styles.optionsText, styles.whiteText] }>Temperatura</Text>
           </TouchableOpacity>
 
           {/* Opção Medidas */}
-          <TouchableOpacity style={ [styles.optionsItem, {backgroundColor: '#f1f1f120'}] } onPress={() => navigation.navigate("Comprimentos")}>
+          <TouchableOpacity style={ [styles.optionsItem] } onPress={() => navigation.navigate("Comprimentos")}>
             <Icon_Rulers fill="#fff" width={24} height={24} viewBox="0 0 16 16" style={ styles.optionsIcon }/>
             <Text style={ [styles.optionsText, styles.whiteText] }>Comprimento</Text>
           </TouchableOpacity>
@@ -61,7 +61,7 @@ export default function CustomDrawer({ navigation }) {
         </View>
 
       {/* Footer do Drawer */}
-      <View style={ [styles.footer, { backgroundColor: '#f1f1f120' }] }>
+      <View style={ [styles.footer] }>
         <View style={ {flexDirection: 'row'} }>
           <Icon_Star fill="#ffff00" style={ [styles.star]}/> 
           <Icon_Star fill="#ffff00" style={ [styles.star]}/>
@@ -114,8 +114,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    margin: 10,
+    marginVertical: 10,
+    backgroundColor: '#ffffff08',
+    borderRadius: 5,
 	},
 
   optionsIcon: {
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
   },
 
 	optionsText: {
-		fontSize: 20,
+		fontSize: 18,
 	},
 
   footer: {

@@ -47,8 +47,8 @@ export default function Keyboard(){
     {/* Passar os Cálculos para o Visor */}
     <DisplayCalculadora result = {result} input = {input}/>
 
-    <View style={ {alignItems: 'flex-end', marginBottom: 8 , marginHorizontal: 10, borderBottomColor: '#222', borderBottomWidth: 1,} }> 
-      <TouchableOpacity onPress={() => insertValue('C')} style={ {marginRight: 11}}>
+    <View style={ styles.rowBackspace }> 
+      <TouchableOpacity onPress={() => insertValue('C')} style={ {marginRight: 10}}>
         <Image
           source={erase}
           style = {{width: 50, height: 50}}
@@ -136,10 +136,17 @@ export default function Keyboard(){
 }
 
 const styles = StyleSheet.create({
+  rowBackspace: {
+    alignSelf: 'center',
+    alignItems: 'flex-end',
+    width: (((windowWidth/5)*4)+(10*4)),
+    borderBottomColor: '#222',
+    borderBottomWidth: 1,
+  },
+
   rowViews:{
     flexDirection: 'row',
     width: '100%',
-    backgroundColor: '#ffffff20',
   },
   numButtons: {
     backgroundColor: '#272929',
@@ -163,6 +170,7 @@ const styles = StyleSheet.create({
   insideButtons: {
     color: '#fff',
     fontSize: 30,
+    fontWeight: '200',
     textAlign: 'center',
   },
   equalButton: {
