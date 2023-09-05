@@ -38,7 +38,7 @@ Clone o repositorio em uma pasta de sua escolha:
 git clone <link do repositorio>
 ```
 
-Abra o prompt de comando do repositorio baixado e execute o seguinte comando:
+Abra o prompt de comando e caminhe até o repositorio baixado e execute o seguinte comando:
 ```
 npm install
 ```
