@@ -2,7 +2,22 @@
 
 <img src="imagem.png" alt="Exemplo imagem">
 
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+
+## Sobre o projeto
+
+Lorem ipsum
+
+## Objetivo
+
+Lorem ipsum
+
+## Requisitos Funcionais
+
+Lorem ipsum
+
+## Tecnologias utilizadas
+
+Lorem ipsum
 
 
 ## 💻 Pré-requisitos
