@@ -11,7 +11,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 * Você possui o NodeJS instalado.
 * Você possui o ExpoGo instalado no seu dispositivo móvel.
-* Você tem uma máquina `<Windows / Linux / Mac>`, e um dispositivo móvel `<IOS / Android>` Indique qual sistema operacional é compatível / não compatível.
+* Você tem uma máquina `<Windows / Linux / Mac>`, e um dispositivo móvel `<IOS / Android>`.
 
 
 ## 🚀 Instalando Burroladora
