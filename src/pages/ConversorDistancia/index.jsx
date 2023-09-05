@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import ConversorInput from '../../components/ConversorInput/ConversorInput';
+import ConversorKeyboard from '../../components/ConversorKeyboard/ConversorKeyboard';
 
 export default function ConversorDistancia({ navigation }) {
 
@@ -14,7 +15,8 @@ export default function ConversorDistancia({ navigation }) {
                 <ConversorInput type={'distancia'}></ConversorInput>
             </View>
             <View style={styles.teclado}>
-
+                <ConversorKeyboard>
+                </ConversorKeyboard>
             </View>
         </View>
 
@@ -27,6 +29,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#000'
     },
     conversor: {
-        flex : 2 / 3, 
+        flex : 1 / 3, 
     },
+    teclado: {
+        flex: 1,
+
+    }
 })

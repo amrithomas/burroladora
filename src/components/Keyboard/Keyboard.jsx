@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 import DisplayCalculadora from '../../components/DisplayCalculadora/DisplayCalculadora';
 import { Dimensions } from "react-native";
-
+// Imagem botão de apagar
 import erase from '../../../assets/erase.png'
 
 const windowWidth = Dimensions.get('window').width;
