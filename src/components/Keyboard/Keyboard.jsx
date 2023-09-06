@@ -172,7 +172,6 @@ const styles = StyleSheet.create({
     // fontSize: 30,
     fontSize: (windowWidth/5)-(windowWidth/10),
     fontWeight: '200',
-    textAlign: 'center',
   },
   equalButton: {
     backgroundColor: '#5203FC',

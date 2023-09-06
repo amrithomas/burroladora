@@ -26,13 +26,14 @@ export default function ConversorDistancia({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000'
+        backgroundColor: '#000',
     },
     conversor: {
-        flex : 1 / 3, 
+        flex : 2 / 4, 
     },
     teclado: {
-        flex: 1,
+        flex: 2 / 3 ,
+
 
     }
 })

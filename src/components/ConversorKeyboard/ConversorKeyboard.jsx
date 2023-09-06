@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
+import { Dimensions } from "react-native";
 // Imagem botão de apagar
 import erase from '../../../assets/erase.png';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const ConversorKeyboard = () => {
 
@@ -16,15 +19,23 @@ const ConversorKeyboard = () => {
         '-', '0', 'C',
       ];
 
+      const rows = 4; // Número de linhas
+      const cols = 3; // Número de colunas
 
     return(
      <View style = {styles.container}>
-        <View>
+        <View style = {styles.a}>
             {buttons.map((button, index) => (
                 <TouchableOpacity
                     key={index}
                     onPress = {() => insertValue(button)}
-                    style = {styles.buttons}
+                    style = {[styles.buttons,
+                    {
+                        marginTop: index >= cols ? 5 : 0, // Adiciona margem superior após cada linha
+                        marginLeft: index % cols !== 0 ? 5 : 0, // Adiciona margem esquerda após cada coluna (exceto a primeira)
+                    },
+                    
+                    ]}
                     >
                     <Text style = {styles.insideButton}>
                     {button}
@@ -41,18 +52,27 @@ const ConversorKeyboard = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        alignItems: 'flex-end',
+    },
+    a:{
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
     },
     insideButton: {
-        color: '#000',
-        fontSize: 20
+        color: '#fff',
+        fontSize: (windowWidth/5)-(windowWidth/10),
+        fontWeight: '200',
     },
     buttons:{
-        backgroundColor:'#fff',
-        flexDirection: 'row',
-        height: '80',
-        width: '80',
-        margin: 2
+        backgroundColor:'#272929',
+        borderRadius: 1000,
+        height: windowWidth/5,
+        width: windowWidth/4,
+        margin: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 
 });
