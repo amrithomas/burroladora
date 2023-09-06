@@ -1,6 +1,6 @@
 # Burroladora - A calculadora para burros
 
-<img src="imagem.png" alt="Exemplo imagem">
+<img src="logo.png" alt="Exemplo imagem">
 
 
 ## Sobre o projeto
