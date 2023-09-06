@@ -10,10 +10,14 @@ export default function Calculadora({ navigation }) {
     // const [result, setResult] = useState('');
     // const [input, setInput] = useState('');
 
+    // const result = Keyboard.result;
+    // const input = Keyboard.input;
+    
+
     return  (
         <>
             <View style = { [styles.container] }>
-                {/* <DisplayCalculadora result = {3} input = {2}/> */}
+                {/* <DisplayCalculadora result = {result} input = {input}/> */}
                 <Keyboard />
             </View>
         </>

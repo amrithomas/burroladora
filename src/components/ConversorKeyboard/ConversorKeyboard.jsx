@@ -3,27 +3,65 @@ import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 import { Dimensions } from "react-native";
 // Imagem botão de apagar
 import erase from '../../../assets/erase.png';
+//Componente da Tela
+import ConversorInput from "../ConversorInput/ConversorInput";
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const ConversorKeyboard = () => {
+const ConversorKeyboard = ({type}) => {
+
+    const [input, setInput] = useState('');
 
     const insertValue = (value) => {
-    
-    }; 
+        if (value === '-') {
+          if (input.startsWith('-')) {
+            return input; 
+          } else {
+            setInput((prevValue) => '-' + prevValue);
+          }
+        } else if (value === 'C') {
+          setInput((prevValue) => prevValue.slice(0, -1));
+        } else if (value === '.') {
+          if (input.endsWith('.')) {
+            return input; // Already ends with '.', no need to add another
+          } else if (input.startsWith('.')) {
+          } else {
+            setInput((prevValue) => prevValue + value);
+          }
+        } else {
+          setInput((prevValue) => prevValue + value);
+        }
+      };
+      
+      
+ 
     const buttons = [
         '7', '8', '9',
         '4', '5', '6',
         '1', '2', '3',
-        '-', '0', 'C',
+        '-', '0', '.',
       ];
 
       const rows = 4; // Número de linhas
       const cols = 3; // Número de colunas
 
+      const typeInput = type;
+
     return(
-     <View style = {styles.container}>
+        
+        <View style = {styles.container}>
+        <ConversorInput type={typeInput} value={input}/>
+        
+        <View style={ styles.rowBackspace }> 
+            <TouchableOpacity onPress={() => insertValue('C')} style={ {marginRight: 55, alignSelf: 'flex-end'}}>
+                <Image
+                source={erase}
+                style = {{width: 50, height: 50}}
+                />
+            </TouchableOpacity>
+        </View>
+
         <View style = {styles.a}>
             {buttons.map((button, index) => (
                 <TouchableOpacity
@@ -53,7 +91,6 @@ const ConversorKeyboard = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'flex-end',
     },
     a:{
         flexDirection: 'row',
