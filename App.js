@@ -19,6 +19,7 @@ export default function App() {
       <Drawer.Navigator
         // opções da barra superior do aplicativo
         screenOptions={{
+          drawerStyle: { backgroundColor: '#272929'},
           headerTitleAlign: 'center',
           headerStyle: { backgroundColor: '#000' },
           headerShadowVisible: false,
