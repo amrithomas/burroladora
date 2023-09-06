@@ -5,15 +5,16 @@
 
 ## Sobre o projeto
 
-Lorem ipsum
+Bem-vindo ao projeto da Burroladora, calculadora e conversor para burros! Este repositório abriga uma aplicação em React-Native que visa simplificar suas necessidades de cálculo e conversão para burros. Este projeto foi concebido com os seguintes objetivos em mente:
 
 ## Objetivo
 
-Lorem ipsum
+O objetivo deste projeto é criar uma aplicação mobile de calculadora e conversor. 
 
 ## Requisitos Funcionais
 
-Lorem ipsum
+* Calculadora
+* 2 conversores distintos 
 
 ## Tecnologias utilizadas
 
