@@ -18,7 +18,7 @@ Lorem ipsum
 ## Tecnologias utilizadas
 
 <div style="display : flex; justify-content : center">
-  ![image]https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+  ![image](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
  
   
 </div>
