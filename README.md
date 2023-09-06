@@ -14,7 +14,26 @@ O objetivo deste projeto é criar uma aplicação mobile de calculadora e conver
 ## Requisitos Funcionais
 
 * Calculadora
-* 2 conversores distintos 
+
+Adição (+) 
+
+Subtração (-) 
+
+Multiplicação (*) 
+
+Divisão (/) 
+  
+* Conversão de temperatura: 
+
+Capaz de converter diferentes unidades de temperatura, como Celsius, Fahrenheit, Kelvin de acordo com a escolha do usuário. 
+
+O usuário deve poder inserir a temperatura que deseja converter, podendo selecionar as unidades de temperatura de origem e destino para a conversão. 
+
+* Conversão de comprimentos: 
+
+Capaz de converter diferentes unidades de comprimento baseadas no metro, a medida oficial do Sistema Internacional de Medidas, de acordo com a escolha do usuário. 
+
+O usuário deve poder inserir o comprimento que deseja converter, podendo selecionar as unidades de medida de origem e destino para a conversão. 
 
 ## Tecnologias utilizadas
 
