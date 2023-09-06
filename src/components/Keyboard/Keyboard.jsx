@@ -169,7 +169,8 @@ const styles = StyleSheet.create({
   },
   insideButtons: {
     color: '#fff',
-    fontSize: 30,
+    // fontSize: 30,
+    fontSize: (windowWidth/5)-(windowWidth/10),
     fontWeight: '200',
     textAlign: 'center',
   },
